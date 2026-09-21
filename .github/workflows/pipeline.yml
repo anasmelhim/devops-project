@@ -1,0 +1,22 @@
+name: First Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  my-first-job:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Step 1
+        run: echo "Hello Anas"
+
+      - name: Step 2
+        run: pwd
+
+      - name: Step 3
+        run: ls -la

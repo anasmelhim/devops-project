@@ -15,5 +15,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
       - name: Build Docker Image
-        run: docker build -t devops-web .
+        run: docker build -t anasmelhim/devops-web:latest .
+
+      - name: Push Docker Image
+        run: docker push anasmelhim/devops-web:latest
